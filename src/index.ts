@@ -12,3 +12,5 @@ app.listen(PORT, () => {
 });
 
 app.get("/", getCEP);
+
+export default app;
