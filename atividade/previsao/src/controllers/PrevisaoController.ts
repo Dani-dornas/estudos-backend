@@ -50,7 +50,7 @@ class PrevisaoController {
         if (error) {
           res.send({ message: error });
         } else {
-          res.send(result);
+          res.json(result);
         }
       }
     );

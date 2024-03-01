@@ -18,15 +18,19 @@ describe("Cptec", () => {
           });
     });
 
-    it("Previsão de 7 dias", async () => {
+    it("Previsão", async () => {
         // Simula Request e Response em um oibjeto
-        const req = {params:{cidade: "santa branca"}} as unknown as Request;
-        const res = {} as unknown as Response;
+        const req = {} as Request;
+        const res = {
+            json: jest.fn(),
+            locals:{id: "4528"}
+        } as unknown as Response;
         
         await controller.previsao(req, res);
         
-        expect(res.locals).toEqual(
-            expect.stringContaining("<nome>Santa Branca</nome>")
+        expect(res.json).toHaveBeenCalledWith(
+            expect.objectContaining({"nome": "Santa Branca"})
+            // {"atualizacao": "2024-02-29", "nome": "Santa Branca", "previsao": [{"dia": "2024-03-01", "iuv": "12.0", "maxima": "28", "minima": "20", "tempo": "c"}, {"dia": "2024-03-02", "iuv": "12.0", "maxima": "27", "minima": "19", "tempo": "pn"}, {"dia": "2024-03-03", "iuv": "12.0", "maxima": "30", "minima": "16", "tempo": "pn"}, {"dia": "2024-03-04", "iuv": "12.0", "maxima": "33", "minima": "19", "tempo": "pn"}], "uf": "SP"}
        );
     });
 });
