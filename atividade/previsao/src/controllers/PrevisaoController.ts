@@ -31,9 +31,9 @@ class PrevisaoController {
       { explicitArray: false, trim: true, explicitRoot: false },
       (error: any, result: any) => {
         if (error) {
-          res.send({ message: error });
+          res.json({ message: error });
         } else {
-          res.send(result);
+          res.json(result);
         }
       }
     );
@@ -48,7 +48,7 @@ class PrevisaoController {
       { explicitArray: false, trim: true, explicitRoot: false },
       (error: any, result: any) => {
         if (error) {
-          res.send({ message: error });
+          res.json({ message: error });
         } else {
           res.json(result);
         }
@@ -65,9 +65,9 @@ class PrevisaoController {
       { explicitArray: false, trim: true, explicitRoot: false },
       (error: any, result: any) => {
         if (error) {
-          res.send({ message: error });
+          res.json({ message: error });
         } else {
-          res.send(result);
+          res.json(result);
         }
       }
     );
