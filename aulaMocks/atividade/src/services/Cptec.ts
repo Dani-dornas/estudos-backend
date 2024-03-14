@@ -17,6 +17,7 @@ export default class Cptec {
 
   async listaCidades(cidade: string) {
     const { data } = await api.get(`/listaCidades?city=${this.removerAcentos(cidade)}`);
+    console.log(data)
     return data;
   }
 
